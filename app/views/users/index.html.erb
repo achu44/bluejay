@@ -1,0 +1,25 @@
+<%= set_title 'Search Classmate' %>
+
+<div class="row-fluid">
+    <div class="span2">
+    </div>
+
+    <div class="span8">
+        <h3>Looking for a friend?</h3>
+
+<table>
+  <tr class="thspace_right space_under">
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class="tdspace_right" style="text-align: center">
+    <td><%= link_to user.name, user %></td>
+    <td><%= link_to user.email, user %></td>
+  </tr>
+<% end %>
+</table>
+
+    </div>
+</div>

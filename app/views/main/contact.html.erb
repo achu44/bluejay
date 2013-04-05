@@ -1,0 +1,7 @@
+Contact us with questions, concerns, and comments at the field below:
+</br></br>
+
+<%= form_tag({:controller => "/main", :action => "contact"}, :method => "get") do %>
+  <%= text_field_tag :contact, params[:contact], :size => 50 %>
+  <%= submit_tag('Send') %>
+<% end %>

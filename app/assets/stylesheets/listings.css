@@ -1,0 +1,155 @@
+div#header{ 
+position: absolute; 
+background-color: #C2D6FF; 
+top : 0px; 
+left: 0px; 
+height: 100px; 
+width: 100%; 
+border: 1px 1px 2px 1px; 
+border-style: groove; 
+border-color: #6699FF; 
+} 
+div#sidebar{ 
+position: absolute; 
+top : 103px; 
+left: 0px; 
+width: 150px; 
+height: 100%; 
+border-style:groove; 
+border: 0px 1px 0px 0px; 
+border-color: #6699FF; 
+background-color: #C2D6FF; 
+} 
+div#main{ 
+position: absolute; 
+top: 115px; 
+left: 165px; 
+height: 100%; 
+width: 90%; 
+} 
+ul#header_list 
+{ 
+list-style: none outside; 
+display: table; 
+float: left; 
+table-layout: fixed; 
+margin: auto; 
+position: absolute; 
+top: 35px; 
+right: 50px; 
+} 
+li#header_item 
+{ 
+float:left; 
+height: 25px; 
+font-family: 'Short Stack', cursive; 
+/*font-family: 'Swanky and Moo Moo', cursive; 
+font-family: 'Walter Turncoat', cursive; 
+font-family: 'Delius Unicase', cursive; 
+font-family: 'Coming Soon', cursive;*/ 
+width: 100px; 
+height: 25px; 
+border-width: 0 1px 0 1px; 
+border-style: solid; 
+border-color: #999; 
+text-align: center; 
+background-color: #C2D6FF; 
+} 
+ul#sidebar_list 
+{ 
+list-style: none outside; 
+display: table; 
+table-layout: fixed; 
+margin: auto; 
+position: absolute; 
+top: 20px; 
+left: -40px; 
+} 
+li#sidebar_item 
+{ 
+font-family: 'Short Stack', cursive; 
+width: 130px; 
+height: 30px; 
+text-align: center; 
+} 
+img#logo 
+{
+	position: absolute;
+	top: 24px;
+	left: 31px;
+} 
+form#search_bar 
+{ 
+position: absolute; 
+top: 35px; 
+left: 550px; 
+z-index: 3; 
+font-family: 'Short Stack', cursive; 
+} 
+input#search_entry 
+{ 
+/*width: 470px; 
+height: 25px;
+Using :size => x feature of Rails.  See the views file for this.
+*/
+border-radius: 10px; 
+} 
+input#search_submit 
+{ 
+width: 70px; 
+height: 60px; 
+font-size: 60px; 
+} 
+div#search_desc 
+{ 
+position: relative; 
+top: 15px; 
+left: 20px; 
+font-family: verdana, arial, helvetica, sans-serif; 
+font-size: 16px; 
+} 
+div#search_stats 
+{ 
+position: relative; 
+top: 35px; 
+left: 3px; 
+width: 100%; 
+text-align: right; 
+font-family: verdana, arial, helvetica, sans-serif; 
+font-family: 10px; 
+background-color: #F0F0F0; 
+} 
+div.result 
+{ 
+position: relative; 
+top: 30px; 
+height: 150px; 
+width: 100%; 
+border-style: solid; 
+border-width: 0px 0px 1px 0px; 
+border-color: #F0F0F0; 
+font-family: verdana, arial, helvetica, sans-serif; 
+} 
+div.number 
+{ 
+position: absolute; 
+top: 5px; 
+left: 10px; 
+} 
+div.result_image 
+{ 
+position: absolute; 
+top: 10px; 
+left: 30px; 
+} 
+img.display_img{} 
+div.data 
+{ 
+position: absolute; 
+top:20px; 
+left: 165px; 
+} 
+div.product_name{} 
+div.product_price{} 
+div.gen_info{}
+td.result_image img{width: 200px; height: 200px}

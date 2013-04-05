@@ -1,0 +1,290 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+/* VARIABLES */
+
+/* Colors */
+$brownMedium: #993300;
+$brownDarkish: darken($brownMedium, 5%);
+$brownDark: darken($brownMedium, 10%);
+$turquoiseMedium: #599497;
+$grayLightVeryTransparent: rgba(127,127,127,0.25);
+$grayLightTransparent: rgba(127,127,127,0.5);
+$grayLightSomeTransparent: rgba(127,127,127,0.75);
+
+$unspecified: #AAAAAA;
+
+/* Gradients */
+$grayMediumVerticalGradient: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.25, rgb(203, 203, 197)), color-stop(0.76, rgb(221, 221, 216)), color-stop(0.98, rgb(238, 238, 236)), to(rgb(231, 231, 228)));
+$blueMediumVerticalGradient: -webkit-linear-gradient(top, rgba(17,158,209,1) 0%,rgba(13,145,193,1) 50%,rgba(20,131,168,1) 51%,rgba(8,91,124,1) 100%);
+$turquoiseMediumVerticalGradient: -webkit-linear-gradient(top, rgba(19,198,195,1) 0%,rgba(20,168,168,1) 40%,rgba(89,148,151,1) 100%);
+
+/* Symbolics */
+$mainBwkground: $unspecified;
+/* Nav background 1 */
+$backgroundAccent1: $turquoiseMedium;
+/* Nav background 2 */
+$backgroundAccent2: lighten($backgroundAccent1, 10%);
+
+$shadowLight: $grayLightVeryTransparent;
+$shadowMedium: $grayLightTransparent;
+$shadowDark: $grayLightSomeTransparent;
+
+$title: $unspecified;
+$subtitle: $unspecified;
+$subsubtitle: $unspecified;
+$text: $unspecified;
+ 
+$navLink: $unspecified;
+$textLink: $unspecified;
+
+
+/* BOOTSTRAP OVERRIDES */
+
+$linkColor: darken($linkColor, 10%);
+// $linkColorHover: #AA0000;
+
+@import "bootstrap";
+
+
+/* MIXIN CODE */
+
+/* UNIVERSAL STYLES */
+
+.logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  padding-top: 8px;
+  padding-left: 18px;
+  padding-right: 15px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: $shadowDark 0.1em 0.1em 0.2em;
+
+  text-decoration: none;
+  -webkit-transition: 300ms linear 0s;
+  -moz-transition: 300ms linear 0s;
+  -o-transition: 300ms linear 0s;
+  transition: 300ms linear 0s;
+  outline: 0 none;
+  &:hover {
+    text-shadow: -1px 1px 8px #ffa, 1px -1px 8px lighten($linkColor, 25%);
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:link.mainnav, a:visited.mainnav {
+  color: $brownMedium;
+  text-align: center;
+}
+
+.container.search-fields {
+  width: auto;
+}
+
+.search-fields {
+  padding-top: 5px;
+  padding-right: 5px;
+  float: right;
+}
+
+.main-content-row {
+  height: 100%;
+}
+
+.post-button {
+  margin-left: 7px;
+}
+
+.nav {
+  
+}
+
+//// IN PROCESS OF CONSOLIDATING... 
+
+form {
+  display: inline !important;
+  margin: 0px 0px 0px 0px;
+}
+
+input {
+  display: inline !important;
+}
+
+div#profile_info_box {
+    position: relative; /*needed to style child element*/
+    width: 150px;
+    height: 250px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $turquoiseMedium;
+  }
+
+div.sidebar {
+  height: 550px;
+  background-color: $backgroundAccent1;
+  border-right: 2px solid $shadowLight;
+}
+div.image_decoration {
+  width:100px; 
+  height:100px;
+  border-color: $turquoiseMedium; 
+  border-style: inset;
+}
+
+div#main_page_text_temporary h2 {
+  color: $turquoiseMedium
+}
+
+// div#header_text_placement {
+//   padding-top: 15px;
+// }
+
+// div#header_templatecss
+// {
+//   height: 60px; 
+//   background-color: #FFFFFF;
+//   text-align: center;
+// } 
+
+div#search_header_templatecss
+
+{ 
+  padding-top: 40px;
+  height: 40px;
+  background-image: $turquoiseMediumVerticalGradient;
+} 
+
+// form.search_form_templatecss
+// {
+//   position: absolute;
+//   right: 30px;
+//   top: 65px;
+// }
+div#main
+{ 
+  height: 100%;
+  min-height: 520px;
+}
+
+div.sidebar_main
+{
+  height: 388px;
+  background-color: white; 
+  border-color: #6699FF; 
+  border-style:groove; 
+}
+div.sidebar_items
+{
+  height: 660px;
+  background-color: white; 
+  border-color: #6699FF; 
+  border-style:groove; 
+
+}
+
+hr#dotted_line_items {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+/* The above #dotted_line_items div is currently not in use */
+
+div.result_image 
+{ 
+position: absolute; 
+top: 10px; 
+left: 30px; 
+}
+
+td.result_image img {width: 160px; height: 140px}
+
+tr.dotted_line {
+  border-width: 0 0 1px 0; 
+  border-style: solid; 
+  border-color: #999; 
+}
+
+/* >>>>>> Header <<<<<<< */
+
+
+
+ul#header_list 
+{ 
+  position: relative;
+  top: 25px;
+  float: right; 
+  list-style: none; 
+  display: table; 
+  table-layout: fixed; 
+  margin: auto;
+} 
+
+/* >>>>>> Header <<<<<<< */
+
+div#footer_templatecss
+{
+  position: static;
+  height: 45px;
+  background-color: lightgray;
+  border-top: 1.5px solid silver;
+  // padding-top: 20px;
+  // margin-top: 20px;
+  // border-color: #6699FF; 
+  // border-style:groove;
+}
+
+ul#footer_list
+{
+  position: absolute;
+  left: 525px;
+  list-style: none outside;
+}
+li#header_item 
+{ 
+  float:left; 
+  height: 25px; 
+  width: 75px; 
+  // font-family: 'Short Stack', cursive; 
+  border-width: 0 1px 0 0; 
+  border-style: solid; 
+  border-color: #999; 
+  text-align: center; 
+} 
+
+li#navbar_item
+{
+  position: absolute;
+  top: 10px;
+}
+
+r.space_above > td /* Apply padding to td elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+  padding-top: 20px;
+}
+
+tr.space_under > td /* Apply padding to td elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+  padding-bottom: 20px;
+}
+tr.space_under > th /* Apply padding to th elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+  padding-bottom: 20px;
+}
+
+tr.thspace_right > th /* Apply padding to th elements that are direct children of the tr element.*/
+{
+  padding-right: 50px;
+}
+tr.tdspace_right > td /* Apply padding to td elements that are direct children of the tr element.*/
+{
+  padding-right: 50px;
+}

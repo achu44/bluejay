@@ -1,0 +1,1 @@
+{"klass":"Taps::Push","database_url":"postgres://postgres:starbucks@localhost:5432/app_dev?encoding=utf8","remote_url":"http://heroku:osui59a24am79x@taps19.heroku.com","session_uri":"/sessions/8513024117","stream_state":{},"completed_tables":["schema_migrations"],"table_filter":null,"local_tables_info":{"schema_migrations":10,"users":7,"types":0,"items":28,"tags":4,"taggings":3}}

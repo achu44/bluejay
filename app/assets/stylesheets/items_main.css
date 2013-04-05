@@ -1,0 +1,84 @@
+ul#header_list 
+{ 
+position: relative;
+top: 25px;
+float: right; 
+list-style: none; 
+display: table; 
+table-layout: fixed; 
+margin: auto;
+} 
+ul#footer_list
+{
+	position: absolute;
+	left: 525px;
+	list-style: none outside;
+}
+li#header_item 
+{ 
+float:left; 
+height: 25px; 
+width: 75px; 
+font-family: 'Short Stack', cursive; 
+border-width: 0 1px 0 0; 
+border-style: solid; 
+border-color: #999; 
+text-align: center; 
+} 
+
+/*font-family: 'Swanky and Moo Moo', cursive; 
+font-family: 'Walter Turncoat', cursive; 
+font-family: 'Delius Unicase', cursive; 
+font-family: 'Coming Soon', cursive;*/ 
+
+/* >>>>>> Sidebar <<<<<<< */ 
+div#sidebar
+{ 
+position: absolute; 
+top: -10px;
+left: -158px;
+width: 150px; 
+height: 500px; 
+border-style:groove; 
+border: 0px 1px 0px 0px; 
+border-color: #6699FF; 
+background-color: #C2D6FF; 
+}
+ul#sidebar_list 
+{ 
+list-style: none outside; 
+display: table; 
+table-layout: fixed; 
+margin: auto; 
+position: absolute; 
+top: 20px; 
+left: -40px; 
+} 
+li#sidebar_item 
+{ 
+font-family: 'Short Stack', cursive; 
+width: 130px; 
+height: 30px; 
+text-align: center; 
+} 
+/* >>>>>> Sidebar <<<<<<< */
+
+div.result_image 
+{ 
+position: absolute; 
+top: 10px; 
+left: 30px; 
+} 
+td.result_image img {width: 225px; height: 175px}
+
+div#items_on_main_page
+{
+position: relative;
+top: 600px;
+}
+
+tr.space_under > td /* Apply padding to td elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+	padding-bottom: 20px;
+}

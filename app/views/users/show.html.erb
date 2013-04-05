@@ -1,0 +1,92 @@
+<style type="text/css">
+
+  /*tr:hover {
+    background: #FCF;
+  }*/
+
+</style>
+
+<% 
+    @useritems = @user.items 
+    @count = @user.items.size
+    @iterator = 0
+%>
+
+<br>
+
+<div class="row-fluid">
+  <div class="span2">
+
+    <% if @user.photo %>
+    <div style="margin-bottom:50px">
+      <%= image_tag @user.photo, :style => "height: 150px; width: 150px" %>
+    </div>
+    <% end %>
+
+    <div id="profile_info_box">
+      <div style="text-align:center">
+        <b>Profile</b>
+      </div> 
+        <% if @user.name %>
+      <b>Name:</b> <%= @user.name %>
+        <% end %><br>
+      <b>Email:</b> <%= @user.email %><br>
+        <% if @user.house %>
+      <b>House: </b><%= @user.house %><br>
+        <% end %>
+        <% if @user.year %>
+      <b> Year: </b><%= @user.year %>
+        <% end %>
+
+      <% if current_user.id == @user.id %>
+      <div style="position:absolute; bottom: 0px; right: 10px">
+        <%= link_to 'Edit', edit_user_path(@user) %>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div> <!-- End of div 2 for sidebar -->
+
+  <div class="span10">
+
+  <% @i = 1 %>
+
+  <table>
+
+  <tr class="thspace_right">
+    <th>Item</th>
+    <th>Item ID</th>
+    <th>User ID</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr class="tdspace_right space_under">
+    <% @useritems.each do |s| %>
+    <td><%= "#{@i}" %></td>
+    <td><%= s.id %></td>
+    <td><%= @user.id %></td>
+    <td><%= s.name %></td>
+    <td><%= s.item_type %></td>
+    <td class="result_image"><%= image_tag(s.image_url) %></td>
+    <td><%= s.description %></td>
+    <% if current_user.id == @user.id %>
+    <td><%= button_to 'Edit', edit_item_path(s), :class => "btn btn-small btn-info", :method => :get %> </td>
+    <td><%= button_to 'Delete', {:controller => 'items', :action => 'destroy', :id => s.id}, :class => "btn btn-small btn-danger", :method => :delete %></td> 
+    <% end %>
+    <!--Take note!  The s.id is very deliberate.  It's the user id, not an html id. Think twice before tampering -->
+  </tr>
+
+  <% @i+=1 %>
+
+  <% end %>
+
+</table>
+  </div>
+
+</div>  

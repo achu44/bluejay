@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <% if content_for? :title %> <%= yield :title%>
+    <% else %> Swap <% end %>
+  </title>
+  <%=stylesheet_link_tag "template", "bootstrap_and_overrides" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<style type="text/css">
+
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.contentone {
+  background-color: #3B5998;
+  color: #FFF;
+}
+
+.contentone .span12 {
+  height: 90px;
+}
+
+.contenttwo {
+  background-color: #FFF;
+}
+
+.contenttwo .span12 {
+  height: 150px;
+}
+
+.contentthree {
+  background-color: #3B5998;
+  color: #FFF;
+}
+
+.contentthree .span12 {
+  height: 98px;
+}
+
+/*the following below are for positioning elements of the front page! :D */
+
+#site_title {
+  position: absolute;
+  left: 100px;
+  top: 25px;
+}
+#email_field {
+  position: absolute;
+  top: 5px;
+  right: 350px;
+}
+#password_field {
+  top: 5px;
+  position: absolute;
+  right: 115px;
+}
+
+#keep_me_logged_in {
+  position: absolute;
+  top: 58px;
+  right: 560px;
+}
+#keep_me_logged_in_text {
+  position: absolute;
+  top: 61px;
+  right: 435px;
+}
+#log_in_button {
+  position: absolute;
+  top: 31px;
+  right: 45px;
+}
+
+ul#main_footer
+{
+  position: relative;
+  top: 32px;
+  left: 400px;
+  list-style: none outside;
+}
+li#main_footer_item
+{ 
+  float:left; 
+  height: 25px; 
+  width: 75px; 
+  font-family: 'Short Stack', cursive; 
+  border-width: 0 1px 0 0; 
+  border-style: solid; 
+  border-color: #999; 
+  text-align: center; 
+} 
+
+}
+
+/* End positionig code */
+
+</style>
+
+<div class="container-fluid">
+  <div class="contentone">
+    <div class="row-fluid">  
+      <div class="span12">
+
+<h2 id="site_title">notfacebook</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div id="email_field"><%= f.label :email %>
+  <%= f.email_field :email %></div>
+
+  <div id="password_field"><%= f.label :password %>
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div id="keep_me_logged_in"><%= f.check_box :remember_me %></div>
+    <div id="keep_me_logged_in_text"><%= f.label :keep_me_logged_in %></div>
+  <% end -%>
+
+  <div id="log_in_button"><%= f.submit "Log In" %></div>
+<% end %>
+
+    </div> <!--for the 'span12' tag-->
+  </div> <!--for the 'row-fluid' tag-->
+</div> <!--for the 'contentone' tag-->
+
+
+<br /><br /><br /><br />
+
+<div class="row-fluid">
+
+  <div class="span7">
+    <div style="text-align:center">
+    <%= image_tag("http://zuban.com.ua/blog/wp-content/uploads/2008/flying_squirrel.jpg")%>
+    </div>
+  </div>
+
+<div class="span5">
+
+<h2>Sign up</h2> <br />
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <br />
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+  
+</div> <!--for the 'span5' tag-->
+</div> <!--for the 'row-fluid' tag-->
+
+<div class="contenttwo">
+  <div class="row-fluid">
+    <div class="span12">
+
+    </div> <!--for the 'span12' tag-->
+  </div> <!--for the 'row-fluid' tag-->
+</div> <!--for the 'contenttwo' tag-->
+
+<div class="contentthree">
+  <div class="row-fluid">  
+    <div class="span12">
+
+    <ul id="main_footer">
+      <li id="main_footer_item"><%= link_to 'Main', '/main' %></li>
+      <li id="main_footer_item"><%= link_to 'Items', '/items'%></li>
+      <li id="main_footer_item"><%= link_to 'Users', '/users' %></li>
+      <li id="main_footer_item"><%= link_to 'Contact', '/contact'%></li>
+    </ul>
+
+    </div> <!--for the 'span12' tag-->
+  </div> <!--for the 'contenttwo' tag-->
+</div> <!--for the 'row-fluid' tag-->
+
+</div> <!--for the 'container-fluid' tag-->
+
+</body>
+</html>

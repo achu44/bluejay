@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  	<% if content_for? :title %> <%= yield :title%>
+  	<% else %> Swap <% end %>
+  </title>
+  <%=stylesheet_link_tag "devise_example", "template", "items_main" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div id="container">
+<%= yield%> 
+</div>
+
+</body>

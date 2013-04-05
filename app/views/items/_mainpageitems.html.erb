@@ -1,0 +1,12 @@
+<% @items = Item.order("created_at DESC").find(:all, :limit => 4) %>
+
+<table>
+	<tr class="tdspace_right">
+<% @items.each do |item| %>
+    <td align="center"><%= link_to image_tag(item.image_url, :style => "width:160px; height:140px"), item %> 
+    <br /><br />
+    <%= link_to item.name, item %> &nbsp
+    <%= time_ago_in_words(item.created_at) %> ago </td>
+<% end %>
+	</tr>
+</table>

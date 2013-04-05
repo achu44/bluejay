@@ -1,0 +1,54 @@
+<h1>Hello!</h1>
+
+<p style="position:absolute; right: 400px"><%= link_to 'Items', items_path %></p>
+<p style="position:absolute; right: 300px"><%= link_to 'Users', users_path %></p>
+
+<% if user_signed_in? -%>
+  <p><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></p>
+  <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
+<% else %>
+  <p><%= link_to 'Sign in as User', '/login' %></p>
+  <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
+<% end -%>
+
+<br /><br /><br /><br />
+
+<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<br /><br /><br /><br />
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+
+<%= link_to 'Items', items_path %>
+<%= link_to 'Users', users_path %>

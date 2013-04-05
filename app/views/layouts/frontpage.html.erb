@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  	<% if content_for? :title %> <%= yield :title%>
+  	<% else %> Swap <% end %>
+  </title>
+  <%=stylesheet_link_tag "template", "bootstrap_and_overrides" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<%= yield%> 
+
+</body>

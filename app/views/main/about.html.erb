@@ -1,0 +1,24 @@
+<div class = "row-fluid">
+  <div class = "span3">
+    
+  </div>
+
+  <div class = "span6">
+    <h5>The Harvard List grew out of the efforts of a small group of
+    individuals who thought online campus activities could be streamlined 
+    more efficiently.  We're a group of students like you trying to make the campus
+    a better place.  Please contact us at any time with feedback or suggestions for improving the site.  Thank you!
+    </h5>   
+
+   <h3> Contact Us </h3>
+
+  <%= simple_form_for :message, :url => {:controller => "contact", :action => "new"} do |f| %>
+      <%= f.input :subject, :input_html => {:value => "Subject"} %> 
+      <%= f.input :body, :input_html => {:rows => 10, :maxlength => 250} %>
+      <%= f.button :submit, 'Send Email' %>
+  <% end %>
+
+  </div>
+
+</div> <!--For row-fluid-->
+

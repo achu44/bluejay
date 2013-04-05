@@ -1,0 +1,13 @@
+<% if Item.find(:all) %>
+<% @items = Item.order("created_at DESC").find(:all, :limit => 24) %>
+<% end %>
+
+<% if Item.find(:all) %>
+<% if @items.length > 12 && @items.length != 0 %>
+	<% for i in 12..23 %>
+		<%= link_to @items[i].name, @items[i] %>
+		<%= time_ago_in_words(@items[i].created_at) %>
+		<br>
+	<% end %>
+<% end %>
+<% end %>

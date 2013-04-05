@@ -1,0 +1,11 @@
+<% @items = Item.order("created_on DESC").find(:all, :limit => 4) %>
+
+<table>
+<% @items.each do |item| %>
+	<tr>
+    	<td><%= link_to image_tag(item.image_url, :style => "width:225px; height:175px"), item %></td>
+    	<td><%= link_to item.name, item %></td>
+    	<td><%= item.description %></td>
+	</tr>
+<% end %>
+</table>

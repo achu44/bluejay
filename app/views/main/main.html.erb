@@ -1,0 +1,52 @@
+<style type="text/css">
+div#main_image img {
+	height: 450px; 
+	width: 200px;
+	padding-bottom: 20px;
+}
+
+</style>
+
+<% cover_image_one = "http://coverjunction.s3.amazonaws.com/manual/low/colorful4.jpg" 
+   cover_image_two = "http://kawaiicovers.com/images/covers/funny/1215201180825371344.png"
+   cover_image_three = "http://agbeat.com/wp-content/uploads/2012/11/facebook-cover-photo-3.jpg"
+%>
+
+
+<div class="row-fluid">
+	<div class="span1">
+	</div>
+	<div class="span10">
+
+		<div id="myCarousel" class="carousel slide">
+  		<!-- Carousel items -->
+  		<div class="carousel-inner">
+    		<div class="active item"><%= image_tag cover_image_one, :style => "margin-top:15px; width: 100%; height:125px"%></div>
+    		<div class="item"><%= image_tag cover_image_two, :style => "margin-top:15px; width:100%; height:125px"%></div>
+    		<div class="item"><%= image_tag cover_image_three, :style => "margin-top:15px; width:100%; height:125px"%></div>
+  		</div>
+  		<!-- Carousel nav -->
+  			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+	
+		<div id="main_page_text_temporary">
+			<h2 style="display:inline">Recently Posted Items</h2> &nbsp (also looking for needs to be on this page)
+
+			<%= render "items/mainpageitemswithphotos" %>
+        	<%= render "items/mainpageitemswithnames" %>
+        	<div style = "position:absolute; text-align:center; top:419px; left:400px">
+        	<%= render "items/mainpagetwo" %>
+        	</div>
+			
+		</div>
+
+	</div> <!-- For the 'span10' div-->
+	<div class="span1">
+		
+	</div>
+
+</div> <!-- For the 'row-fluid' div-->
+ 
+
+

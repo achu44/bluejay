@@ -1,0 +1,234 @@
+div.sidebar {
+	height: 550px;
+	background-color: #C2D6FF;
+}
+div.image_decoration {
+	width:100px; 
+	height:100px;
+	border-color:black; 
+	border-style:solid;
+}
+
+div#header_text_placement {
+	padding-top: 15px;
+}
+
+div#header_templatecss
+{
+	height: 60px; 
+	background-color: #FFFFFF;
+	text-align: center;
+} 
+
+div#search_header_templatecss
+{ 
+	height: 40px;
+	background-color: #C2D6FF;
+} 
+
+form.search_form_templatecss
+{
+	position: absolute;
+	right: 30px;
+	top: 65px;
+}
+div#main
+{ 
+	min-height: 500px;
+}
+
+div.sidebar_main
+{
+	height: 388px;
+	background-color: white; 
+	border-color: #6699FF; 
+	border-style:groove; 
+
+}
+div.sidebar_items
+{
+	height: 660px;
+	background-color: white; 
+	border-color: #6699FF; 
+	border-style:groove; 
+
+}
+
+hr#dotted_line_items {
+  	border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+/* The above #dotted_line_items div is currently not in use */
+
+div.result_image 
+{ 
+position: absolute; 
+top: 10px; 
+left: 30px; 
+}
+
+td.result_image img {width: 160px; height: 140px}
+
+tr.dotted_line {
+	border-width: 0 0 1px 0; 
+	border-style: solid; 
+	border-color: #999; 
+}
+
+/* >>>>>> Header <<<<<<< */
+
+
+
+ul#header_list 
+{ 
+	position: relative;
+	top: 25px;
+	float: right; 
+	list-style: none; 
+	display: table; 
+	table-layout: fixed; 
+	margin: auto;
+} 
+
+/* >>>>>> Header <<<<<<< */
+
+div#footer_templatecss
+{
+	position: static;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	background-color: #C2D6FF;
+	padding-top: 20px;
+	margin-top: 20px;
+	border-color: #6699FF; 
+	border-style:groove;
+}
+
+ul#footer_list
+{
+	position: absolute;
+	left: 525px;
+	list-style: none outside;
+}
+li#header_item 
+{ 
+	float:left; 
+	height: 25px; 
+	width: 75px; 
+	font-family: 'Short Stack', cursive; 
+	border-width: 0 1px 0 0; 
+	border-style: solid; 
+	border-color: #999; 
+	text-align: center; 
+} 
+
+li#navbar_item
+{
+	position: absolute;
+	top: 10px;
+}
+
+img#logo_old
+{
+position: absolute;
+/*left: 122px;
+top: 5px;*/
+width: 25px; 
+height: 25px;
+} 
+
+
+
+/*font-family: 'Swanky and Moo Moo', cursive; 
+font-family: 'Walter Turncoat', cursive; 
+font-family: 'Delius Unicase', cursive; 
+font-family: 'Coming Soon', cursive;*/ 
+
+tr.space_above > td /* Apply padding to td elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+	padding-top: 20px;
+}
+
+tr.space_under > td /* Apply padding to td elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+	padding-bottom: 20px;
+}
+tr.space_under > th /* Apply padding to th elements that are direct children of the tr element.
+http://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table*/
+{
+	padding-bottom: 20px;
+}
+
+tr.thspace_right > th /* Apply padding to th elements that are direct children of the tr element.*/
+{
+	padding-right: 50px;
+}
+tr.tdspace_right > td /* Apply padding to td elements that are direct children of the tr element.*/
+{
+	padding-right: 50px;
+}
+
+/* Not in use yet. Part of original css file.
+Maybe reference this when you get to coding the search results page.
+As an alternate perspective to solving the problem */
+
+div#search_desc 
+{ 
+position: relative; 
+top: 15px; 
+left: 20px; 
+font-family: verdana, arial, helvetica, sans-serif; 
+font-size: 16px; 
+} 
+div#search_stats 
+{ 
+position: relative; 
+top: 35px; 
+left: 3px; 
+width: 100%; 
+text-align: right; 
+font-family: verdana, arial, helvetica, sans-serif; 
+font-family: 10px; 
+background-color: #F0F0F0; 
+} 
+div.result 
+{ 
+position: relative; 
+top: 30px; 
+height: 150px; 
+width: 100%; 
+border-style: solid; 
+border-width: 0px 0px 1px 0px; 
+border-color: #F0F0F0; 
+font-family: verdana, arial, helvetica, sans-serif; 
+} 
+div.number 
+{ 
+position: absolute; 
+top: 5px; 
+left: 10px; 
+} 
+div.data 
+{ 
+position: absolute; 
+top:20px; 
+left: 165px; 
+} 
+img.display_img{} 
+div.product_name{} 
+div.product_price{} 
+div.gen_info{
+	/*width: inherit;
+height: 60px;
+float: left;
+background-color: #C2D6FF;
+border-width: 1px; 
+border-color: #6699FF; 
+border-style: groove;
+margin-bottom: 20px;*/
+}

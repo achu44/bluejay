@@ -1,0 +1,603 @@
+3/23/12
+
+Yo
+
+From items/_form:
+
+<%= f.input :item_type, :as => :select, :collection => ["Books", "Dorm", "Electronics", "Tickets", "Clothing/Fashion", "Misc"] %>
+
+Taken out of main/main.html.erb:
+
+  <%= render "items/mainpageitemswithphotos" %>
+        <%= render "items/mainpageitemswithnames" %>
+        <div style = "position:absolute; text-align:center; top:419px; left:400px">
+        <%= render "items/mainpagetwo" %>
+        </div>
+
+2/2/12
+
+Taken out of items/views/index:
+
+<!-- You should switch to Kaminari -->
+<!-- <%= will_paginate @items, :renderer => BootstrapPagination::Rails %> -->
+
+1/25
+
+Take out of 'about' for the "Want in?" page:
+
+<!-- Modal -->
+<div id="request-invite" class="modal" style="display: none;">
+  <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:class => 'form-horizontal' } do |f| %>
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">&#215;</a>
+      <h3>Request Invitation</h3>
+    </div>
+    <div class="modal-body">
+      <%= f.error_notification %>
+      <%= f.input :email, :placeholder => 'user@example.com' %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Request Invitation", :class => "btn btn-primary", :id => 'invitation_button' %>
+      <a class="btn" data-dismiss="modal" href="#">Close</a>
+    </div>
+  <% end %>
+</div>
+<!-- End of Modal -->
+
+<div id="romance-copy" style="text-align: center; margin-top: 80px">
+  <h2>Want in?</h2>
+</div>
+<div id="call-to-action" style="text-align: center; margin-top: 80px">
+  <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Request invite</a>
+</div>
+
+1/24
+<%= form_tag({:controller => items_path}, :method => "get", :style => "position:relative; top:30px; left:50px") do %>
+<p><%= check_box_tag('a') %> Books </p>
+<p><%= check_box_tag('b') %> Dorm </p>
+<p><%= check_box_tag('c') %> Tickets </p>
+<p><%= check_box_tag('d') %> Clothes </p>
+<p><%= check_box_tag('e') %> Electronics </p>
+<p><%= check_box_tag('f') %> Other </p>   
+<%= submit_tag('Filter', :class => "btn btn-primary", :style => "position:relative; top: 150px") %>
+<% end %>
+
+1/23
+
+from views/items/index:
+<%= will_paginate @items, :renderer => BootstrapPagination::Rails %>
+
+1/21
+
+from 'items/_form':
+ For Admin Purposes: <br />
+  <%= f.input :user_id, :label => "User ID", :as => :string %>
+
+<table>
+  <tr class="thspace_right">
+    <th>User Photo</th>
+    <th>Item #</th>
+    <th>Item Name</th>
+    <th>Photo</th>
+    <th>Item Description</th>
+    <th>Edit the Item</th>
+    <th>Remove from Marketplace</th>
+  </tr>
+
+  <% @i = 1 %>
+
+  <tr class="tdspace_right space_under">
+    <td><%= image_tag @user.photo %></td>
+    <% @useritems.each do |s| %>
+    <td><%= "#{@i}" %></td>
+    <td><%= s.name %></td>
+    <td class="result_image"><%= image_tag(s.image_url) %></td>
+    <td><%= s.description %></td>
+    <td><%= button_to 'Edit', edit_item_path(s), :class => "btn btn-small btn-info", :method => :get %> </td>
+    <td><%= button_to 'Delete', {:controller => 'items', :action => 'destroy', :id => s.id}, :class => "btn btn-small btn-danger", :method => :delete %></td> <!--Take note!  The s.id is very deliberate.  It's the user id, not an html id. Think twice before tampering -->
+  </tr>
+
+  <% @i+=1 %>
+
+  <% end %>
+
+</table>
+
+1/19
+
+Took out this from App layout top bar:     
+<%= link_to "Post", {:controller => "items", :action => "new"}, :html => {"data-toggle" => "modal"} %>&nbsp&nbsp&nbsp
+
+1/18
+
+from application.html.erb :data => {:toggle => "modal"}
+The root file is at public/index.html.erb
+git push
+
+1/17
+
+<% if user_signed_in? %>
+              Welcome, <%=current_user.email%>
+              <li>
+              <%= link_to('sign out', destroy_user_session_path, :method => :delete) %>
+              </li>
+            <% else %>
+              <li> <%= link_to('Sign In', new_user_session_path) %> </li>
+<% end %>
+<% if user_signed_in? %>
+              Welcome, <%=current_user.email%>
+              <li>
+              <%= link_to('sign out', destroy_user_session_path, :method => :delete) %>
+              </li>
+            <% else %>
+              <li> <%= link_to('Sign In', new_user_session_path) %> </li>
+            <% end %>
+
+         <% if current_user %>
+                 <li>
+                Signed in as <%= current_user.name %>
+                <%= link_to "Sign out", signout_path %>
+                </li>
+                <% else %>
+                  <li>
+                  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+                  </li>
+                <% end %>
+
+1/16
+
+Took out devise:validatable from user model.
+
+<% else %>
+  <%= link_to "Sign in with Fb", "users/auth/facebook" %>
+
+<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+
+1/15
+
+<%= image_tag item.image_url(:thumb) if item.image? %>
+
+1/6-1/14/13
+
+Coded but rolled back to older version to start again.
+
+1/5/13
+
+<%= link_to image_tag(@items[0].image_url, :style => "width:200px; height:155px"), @items[0] %>
+
+Took out from views/items/index:
+
+<% @items.each do |item| %>
+  <table>
+  <tr class="space_under">
+      <td><%= link_to image_tag(item.image_url, :style => "width:200px; height:155px"), item %></td>
+      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to item.name, item %>
+        <br /><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp Price: &nbsp <%= number_to_currency(item.price) %>
+        <br /><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp Details: &nbsp <%= item.description %>
+        <br /><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp Category: &nbsp&nbsp<%= item.item_type %>
+      </td>
+    </tr>
+    </table>
+  <hr style = "border: 0; border-bottom: 1px dashed #ccc; background: #999;" />
+<% end %>
+
+1/3/13
+
+Took out Eifel Tower:
+
+<div class="span2" id="main_image">      
+    <%= link_to image_tag("eiffel-tower-day.jpg"), "http://lmgtfy.com/" %>
+  </div>
+
+Took out header_template:
+
+<div id="header_templatecss">
+
+<ul id="header_list">
+  <div class="row-fluid">  
+      <div class="span12"> 
+
+<li id="header_item"><%= link_to 'Home', '/main'%></li>
+<li id="header_item"><%= link_to 'Post', '/sell' %></li>
+
+<% if user_signed_in? %>
+<li id="header_item"><%= link_to 'My Items', "/users/#{current_user.id}" %></li>
+<% end %>
+
+</ul> <!--closing tag for 'header_list' div-->
+
+      </div> <!--closing tag for 'header_templatecss' div-->
+    </div> <!--for the header_templatecss 'row_fluid' tag-->
+</div> <!--for the header_templatecss 'span12' tag-->
+
+Took out footer from layout:
+<div class="row-fluid">  
+    <div class="span12">
+        <div id="footer_templatecss">
+
+  <ul id="footer_list">
+    <li id="header_item"><%= link_to 'Home', '/main'%></li>
+    <li id="header_item"><%= link_to 'Items', '/items'%></li>
+    <li id="header_item"><%= link_to 'Users', '/users'%></li>
+    <li id="header_item"><%= link_to 'About', '/about' %></li>
+    <li id="header_item"><%= link_to 'Contact', '/contact' %></li>
+    <li id="header_item"><%= link_to 'Frontpage', '/home'%></li>
+  </ul>
+  
+    </div> <!--closing tag for 'footer_templatecss' div -->
+  </div>
+</div>
+
+1/2/13
+
+Took out from views/devise/registrations/new
+following this:
+
+http://railsapps.github.com/tutorial-rails-prelaunch-signup.html
+
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+
+
+Took out external jquery file from views/main/main,
+article http://railsapps.github.com/rails-javascript-include-external.html said better to place these js files in the asset pipeline:
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide();
+  });
+});
+$(document).ready(function(){
+  $(".ex .hide").click(function(){
+    $(this).parents(".ex").hide("slow");
+  });
+});
+</script>
+
+1/1/13
+
+Took out "less" from javascript include tag in all the different layout files.
+Trying to convert from less to sass, and took this out of the gemfile:
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'therubyracer'
+gem "less-rails"
+
+Cut from the Items Controller:
+
+# This was a test method done on Items controller July 21, 2012.
+  # Largely found (so far) to not be the correct way to 
+  def scratchwork
+    @items = Item.find(:all, :order => 'created_at', :limit => 10)
+
+    # This is what used to be in index
+    # It worked with text_field_tag 'items[search]'
+    search_text = @search_text = params[:items] ? params[:items][:search] : ""
+    @search = Item.search do 
+      fulltext search_text
+    end
+
+    # see below code in items/index views that matched up with items_controller
+    # code below in views enclosed by <%= %> signs.
+    form_tag("/search", :method => "get", :id => "search_form") do |f|
+    text_field_tag 'items[search]', @search_text, {:size => 40, :id => "search_field"}
+    submit_tag('Search', :id => "search_submit")
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @items }
+    end
+
+    parameter = params[:search]
+      unless params[:q].blank?
+        @search = Item.search do 
+        with(:type_id).equal_to(params[:q].to_i) 
+      end
+      else
+        @search = Item.search do
+        fulltext parameter
+      end
+    end
+  end
+
+How it's usually done.
+@item = Items.new(params[:item])
+
+Took out from views/items/_form
+, :as => :select, :collection => ["Books", "Dorm", "Electronics", "Tickets", "Clothing/Fashion", "Other"]
+
+12/23/12
+
+<!--yo - testing git push!-->
+
+Took out before filters from items controllers:
+
+  before_filter :require_user, :only => [:edit, :update, :create, :destroy]
+  before_filter :require_same_user, :only => [:edit, :update, :destroy]
+
+Took this out from app/views/main/main:
+
+<div class="span10" id="main_image">      
+    <%= link_to image_tag("main_promo.png"), "http://cdn.memegenerator.net/instances/400x/20343237.jpg" %>
+  </div>
+
+  <h2> &nbsp&nbsp&nbsp&nbsp Recently Posted Items </h2>
+  <br \>
+  <br \>
+
+  <div class="span10">
+    <%= render "items/mainpageitems" %>
+  </div>
+</div>
+
+<br /><br />
+
+</div>
+
+Took out the sidebars temporarily.
+
+from app/views/main/main:
+
+<div class="row-fluid">
+  <div class="span2">
+    <div class="sidebar_main">
+
+    <table class="table" >
+      <tr height = "55px" onclick="location.href='/items?r=Books'"> 
+        <td><h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Books", :controller => "/items", :action => "index", :r => "Books"%></h4></td>
+      <tr>
+
+      <!-- by the way, this is super bad practice: onclick="location.href='/items?r=Books'".  Was put in as a temporary solution to make the sidebar table rows act as links.  Terrible, terrible practice. -->
+
+      <tr height = "55px" onclick="location.href='/items?r=Dorm'">
+        <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Dorm", :controller => "/items", :action => "index", :r => "Dorm" %></h4></td>
+      </tr>
+      
+      <tr height = "55px" onclick="location.href='/items?r=Electronics'">
+              <td><h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Electronics", :controller => "/items", :action => "index", :r => "Electronics" %></h4>
+              </td>
+            </tr>
+            
+      <tr height = "55px" onclick="location.href='/items?r=Tickets'">
+        <td><h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Tickets", :controller => "/items", :action => "index", :r => "Tickets" %></h4></td>
+      </tr>
+
+          <tr height = "55px" onclick="location.href='/items?r=Clothing/Fashion'">
+            <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Clothing/Fashion", :controller => "/items", :action => "index", :r => "Clothing/Fashion" %></h4></td>
+          </tr>
+      
+      <tr height = "55px" onclick="location.href='/items?r=Other'">
+        <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Other", :controller => "/items", :action => "index", :r => "Other" %></h4></td>
+      </tr>
+
+      <tr height = "55px" onclick="location.href='/items?r=Free'">
+        <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Free", :controller => "/items", :action => "index", :r => "Free" %></h4></td>
+      </tr>
+            </table>
+    </div>
+  </div>
+
+from app/views/items/index:
+
+<div class="row-fluid">
+  <div class="span2">
+    <div class="sidebar_items">
+      <table class="table" >
+            <tr height = "55px" onclick="location.href='/items?r=Books'"> 
+                <td><h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Books", :controller => "/items", :action => "index", :r => "Books"%></h4></td>
+            <tr>
+
+            <tr height = "55px" onclick="location.href='/items?r=Dorm'">
+                <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Dorm", :controller => "/items", :action => "index", :r => "Dorm" %></h4></td>
+            </tr>
+      
+            <tr height = "55px" onclick="location.href='/items?r=Electronics'">
+                <td><h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Electronics", :controller => "/items", :action => "index", :r => "Electronics" %></h4>
+                </td>
+            </tr>
+            
+            <tr height = "55px" onclick="location.href='/items?r=Tickets'">
+                <td><h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Tickets", :controller => "/items", :action => "index", :r => "Tickets" %></h4></td>
+            </tr>
+
+            <tr height = "55px" onclick="location.href='/items?r=Clothing/Fashion'">
+                <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Clothing/Fashion", :controller => "/items", :action => "index", :r => "Clothing/Fashion" %></h4></td>
+            </tr>
+      
+            <tr height = "55px" onclick="location.href='/items?r=Other'">
+                <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Other", :controller => "/items", :action => "index", :r => "Other" %></h4></td>
+            </tr>
+
+            <tr height = "55px" onclick="location.href='/items?r=Free'">
+                <td> <h4>&nbsp&nbsp&nbsp&nbsp <%= link_to "Free", :controller => "/items", :action => "index", :r => "Free" %></h4></td>
+            </tr>
+
+            </table>
+
+            &nbsp&nbsp Filter prices between (inclusive):
+
+
+            <!--filtering by price currently done by meta-search' gem which will soon be outdated as of 2012 -->
+            <%= form_tag({:controller => "/items", :action => "index"}, :method => "get") do %>
+                <br />&nbsp
+                <%= text_field_tag :lownum, params[:lownum], :class => "input-mini" %>
+                &
+                <%= text_field_tag :highnum, params[:highnum], :class => "input-mini" %>
+                <br />
+                &nbsp
+                <%= submit_tag('Filter', :class => "btn btn-success") %>
+            <% end %>
+
+    </div>
+  </div>
+
+12/21/12
+
+Took out "bootstrap_and_overrides" from stylesheet_link_tag in application layout and from frontpage layout.
+
+8/27/12
+
+Took out this to separate the items on the sidebar:
+<hr style = "background:black; height: 1px; border: none; margin: none" />
+
+Originally used this to indent stuff on the sidebar:
+<% indent_short = "&nbsp&nbsp&nbsp&nbsp" 
+   indent_long = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" 
+%>
+If you write <%= indent_short.html safe %>, it acts as an indent for the views.
+
+8/24/12
+
+Originally in items/show:
+
+<table>
+  <tr class="thspace_right space_under">
+    <th>Name</th>
+    <th>Created At</th>
+    <th>Item ID</th>
+    <th>User ID</th>
+    <th>Item Type</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+  <tr>
+    <td><%= @item.name %></td>
+    <td><%= @item.created_at %></td>
+    <td><%= @item.id %></td>
+    <td><%= @item.user_id %></td>
+    <td><%= @item.item_type %></td>
+    <td><%= number_to_currency(@item.price) %></td>
+    <td class="result_image"><%= image_tag(@item.image_url) %></td>
+    <td><%= @item.description %></td>
+    <td><%= link_to 'Edit', edit_item_path(@item) %></td>
+    <td><%= button_to 'Destroy', @item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</table>
+
+Originally in items/_form:
+
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :item_type %><br />
+    <%= f.text_field :item_type %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+8/18/12
+
+was at top of users/show.html.erb:
+
+<p><%= @useritems[0].name %></p>
+<p><%= @useritems[1].name %></p>
+<p>Number of items is: &nbsp<%= @count %>
+
+Was originally in users/show.html.erb
+
+<% count = @user.items.count
+    photo = "<th>Item Name</th><th>Item Photo</th>"
+    i = 1 %>
+
+<% while i < count do
+    photo << "<th>Item Name</th><th>Item Photo</th>"
+    i += 1
+end %>
+
+8/17/12
+Took out of main#index:
+
+<p style="position:absolute; right: 400px"><%= link_to 'Items', items_path %></p>
+<p style="position:absolute; right: 300px"><%= link_to 'Users', users_path %></p>
+
+8/16/12
+Took out this from main#index:
+
+<% if user_signed_in? -%>
+  <p><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></p>
+  <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
+<% else %>
+  <p><%= link_to 'Sign in as User', '/login' %></p>
+  <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
+<% end -%>
+
+
+<div id= "sidebar">
+<ul id= "sidebar_list">
+<li id="sidebar_item"><a href="/items">Search</a></li>
+<li id="sidebar_item"><a href="/about">About</a></li>
+<li id="sidebar_item"><a href="/contact">Contact</a></li>
+</div> 
+
+
+match '/users/sign_out' => "devise/sessions#destroy"
+
+Took out the following lines from routes.rb on 8/15:
+
+#the below was working
+get "/login" => "devise/sessions#new"
+
+
+#this doesn't seem to be working. oh well. https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
+devise_scope :user do
+  delete "/logout" => "devise/sessions#destroy"
+end
+#end block

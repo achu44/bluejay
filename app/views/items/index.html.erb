@@ -1,0 +1,84 @@
+<%= set_title 'Search Results' %>
+
+<style type="text/css">
+
+</style>
+
+<div class="row-fluid">
+    <div class="span2"  >
+        <div class="sidebar">
+
+         <%= form_tag({:controller => items_path}, :method => "get", :style => "position:relative; top:30px; left:50px") do %>
+            
+            <h4 style="display:inline">Tags</h4>
+            <p><%= check_box_tag('checkbox[cat][Book]', 1, :checked => true) %> Books </p>
+            <p><%= check_box_tag('checkbox[cat][Dorm]', 2, :checked => true) %> Dorm </p>
+            <p><%= check_box_tag('checkbox[cat][Tick]', 3, :checked => true) %> Tickets </p>  
+
+            <div style="position:relative; top:40px">
+            <h4 style="display:inline">Location</h4>
+            <p><%= check_box_tag('checkbox[loc][Yard]', 1, :checked => true) %> Yard </p>
+            <p><%= check_box_tag('checkbox[loc][Rive]', 2, :checked => true) %> River </p>
+            <p><%= check_box_tag('checkbox[loc][Quad]', 3, :checked => true) %> Quad </p>
+            <p><%= check_box_tag('checkbox[loc][Othe]', 4, :checked => true) %> Other </p>  
+            </div>
+
+            <%= submit_tag('Filter', :class => "btn btn-primary", :style => "position:relative;top:150px") %>
+        <% end %>
+
+        </div> <!--div for sidebar -->
+    </div> <!-- div for span2 -->
+
+<div class="span8">
+
+<% count = 0 %>
+
+<br><!--Temp, will revamp everything-->
+
+<table>
+
+<% @items.each do |item| %>
+	<% if count % 6 == 0 %> <tr class="tdspace_right space_above space_under"> <% end %>
+
+	<td class="tdspace_right">
+        <div class="image_decoration">
+    	<%= link_to image_tag(item.image_url), item %>
+        </div>
+    	<br>
+    	<div style="text-align:center">
+    		<%= link_to item.name, item %>
+    	</div>
+    </td>
+
+    <% if count % 6 == 5 %> </tr> <% end %>
+    
+	<% count += 1 %>
+<% end %>
+
+</table>
+
+</div> <!-- closing div tag for 'span10' from above -->
+<div class="span2">
+<br><br><br><br><br>
+<%= @category_array_temp %>
+<br><br>
+<%= @loc_array_temp %>
+<br><br>
+<%= @category_array %>
+<br><br>
+<%= @loc_array %>
+<br><br>
+<%= @category_array[0] %>
+<br><br>
+<%= @loc_array[0] %>
+<%= @parameter %>
+<br><br>
+<%= @item_hash %>    
+</div>
+
+
+</div> <!-- closing div tag for 'row-fluid' from above -->
+
+ 
+
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+    	<% if content_for? :title %> <%= yield :title%>
+    	<% else %> HarvardList <% end %>
+    </title>
+
+    <%=stylesheet_link_tag "template3" %>
+    <%= javascript_include_tag 'application' %> 
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <!-- MODAL DIALOGS (not rendered inline) -->
+    <!-- Modal Dialog for signing in -->
+    <div id="signin-dialog" class="modal" style="display: none;">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&#215;</a>
+          <h3>Sign In</h3>
+      </div>
+      <div class="modal-body">
+        <%= render 'devise/sessions/form' %>
+        <%= render 'devise/shared/links' %>
+      </div>
+
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal" href="#">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Dialog for posting an item -->
+    <div id="post-item-modal" class="modal" style="display: none;">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&#215;</a>
+          <h3>Post a new Item</h3>
+      </div>
+      <div class="modal-body">
+        <%= render 'items/form' %>
+      </div>
+
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal" href="#">Close</a>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <%= link_to "HarvardList", '/main', :class => "logo" %>
+        <ul class="nav">
+          <!--<li class="active"><a href="#">Home</a></li>-->
+          <li class="divider-vertical"><%= link_to "Home", "/main" %></li>
+          <li><%= link_to "Browse", items_path %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Looking For", '#' %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Search Classmate", "/users" %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account</a>
+              <!--<b class="caret"></b>-->
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
+                <% if current_user_facebook %>
+                  <li><%= link_to "Unlink Facebook Account", logout_path %></li>
+                <% else %>  
+                  <li><%= link_to "Link Facebook Account", user_omniauth_authorize_path(:facebook) %></li>
+                <% end %>
+                <li class="divider"></li>
+                <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><a data-toggle="modal" href="#signin-dialog">Sign In</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOP BAR IN SITE -->
+    <div class="row-fluid">  
+      <div class="span12">
+        <div id="search_header_templatecss">
+          <div class="container search-fields">
+            <%= form_tag({:controller => items_path}, :method => "get", :class => "form-search search_form_templatecss") do %>
+              <%= text_field_tag :query, params[:query], {:size => 40, :class => "search-query"} %>
+              <%= select_tag :r, "<option> </option><option>Books</option><option>Dorm</option><option>Electronics</option><option>Tickets</option><option>Clothing/Fashion</option><option>Misc</option>".html_safe, :selected => params[:r] %>
+
+              <%= submit_tag('Search', :class => "btn btn-primary") %>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <a class="btn btn-primary btn-medium post-button" data-toggle="modal" href="#post-item-modal">Post</a>
+            <% else %>
+              <a class="btn btn-primary btn-medium post-button" data-toggle="modal" href="#signin-dialog">Post</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div id="main">
+      <%= yield%> 
+    </div>
+
+    <!-- FOOTER -->
+    <div class="row-fluid">
+      <div class="span12">
+        <div id="footer_templatecss">
+          <ul id="footer_list" class="nav nav-pills">
+            <li><%= link_to 'Users', '/users'%></li>
+            <li><%= link_to 'Items List', '/itemslist'%></li>
+            <li><%= link_to 'About', '/about'%></li>
+            <li><%= link_to 'Items', '/items'%></li>
+            <li><%= link_to 'Home', '/home' %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

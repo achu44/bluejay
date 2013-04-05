@@ -1,0 +1,25 @@
+<% @items = Item.find(:all, :order => 'created_at DESC') %>
+
+<% count = 0 %>
+
+<table>
+
+<% @items.each do |item| %>
+	<% if count % 4 == 0 %> <tr class="tdspace_right space_above space_under"> <% end %>
+
+	<td class="tdspace_right">
+        <div class="image_decoration">
+    	   <%= link_to image_tag(item.image_url), item %>
+        </div>
+    	<br>
+    	<div style="text-align:center">
+    		<%= link_to item.name, item %>
+    	</div>
+    </td>
+
+    <% if count % 4 == 3 %> </tr> <% end %>
+    
+	<% count += 1 %>
+<% end %>
+
+</table>
