@@ -1,6 +1,4 @@
-<% if Item.find(:all) %>
-<% @items = Item.order("created_at DESC").find(:all, :limit => 8) %>
-<% end %>
+<%= will_paginate @items, previous_label: h("<"), next_label: h(">") %>
 
 <% if Item.find(:all) %>
 <table>
@@ -8,7 +6,7 @@
 <% @items.each do |item| %>
 	<td><div style="padding-right:22px">
     	<div class="image_decoration">
-    		<%= link_to image_tag(item.image_url), item %> 
+    		<%= link_to image_tag(item.image_url), item %>
     	</div>
     <%= link_to item.name, item %>
     <%= time_ago_in_words(item.created_at) %>

@@ -34,7 +34,7 @@ $title: $unspecified;
 $subtitle: $unspecified;
 $subsubtitle: $unspecified;
 $text: $unspecified;
- 
+
 $navLink: $unspecified;
 $textLink: $unspecified;
 
@@ -102,10 +102,10 @@ a:link.mainnav, a:visited.mainnav {
 }
 
 .nav {
-  
+
 }
 
-//// IN PROCESS OF CONSOLIDATING... 
+//// IN PROCESS OF CONSOLIDATING...
 
 form {
   display: inline !important;
@@ -131,9 +131,10 @@ div.sidebar {
   border-right: 2px solid $shadowLight;
 }
 div.image_decoration {
-  width:100px; 
+  overflow:hidden;
+  width:100px;
   height:100px;
-  border-color: $turquoiseMedium; 
+  border-color: $turquoiseMedium;
   border-style: inset;
 }
 
@@ -147,18 +148,18 @@ div#main_page_text_temporary h2 {
 
 // div#header_templatecss
 // {
-//   height: 60px; 
+//   height: 60px;
 //   background-color: #FFFFFF;
 //   text-align: center;
-// } 
+// }
 
 div#search_header_templatecss
 
-{ 
+{
   padding-top: 40px;
   height: 40px;
   background-image: $turquoiseMediumVerticalGradient;
-} 
+}
 
 // form.search_form_templatecss
 // {
@@ -167,7 +168,7 @@ div#search_header_templatecss
 //   top: 65px;
 // }
 div#main
-{ 
+{
   height: 100%;
   min-height: 520px;
 }
@@ -175,16 +176,16 @@ div#main
 div.sidebar_main
 {
   height: 388px;
-  background-color: white; 
-  border-color: #6699FF; 
-  border-style:groove; 
+  background-color: white;
+  border-color: #6699FF;
+  border-style:groove;
 }
 div.sidebar_items
 {
   height: 660px;
-  background-color: white; 
-  border-color: #6699FF; 
-  border-style:groove; 
+  background-color: white;
+  border-color: #6699FF;
+  border-style:groove;
 
 }
 
@@ -195,35 +196,35 @@ hr#dotted_line_items {
 }
 /* The above #dotted_line_items div is currently not in use */
 
-div.result_image 
-{ 
-position: absolute; 
-top: 10px; 
-left: 30px; 
+div.result_image
+{
+position: absolute;
+top: 10px;
+left: 30px;
 }
 
 td.result_image img {width: 160px; height: 140px}
 
 tr.dotted_line {
-  border-width: 0 0 1px 0; 
-  border-style: solid; 
-  border-color: #999; 
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #999;
 }
 
 /* >>>>>> Header <<<<<<< */
 
 
 
-ul#header_list 
-{ 
+ul#header_list
+{
   position: relative;
   top: 25px;
-  float: right; 
-  list-style: none; 
-  display: table; 
-  table-layout: fixed; 
+  float: right;
+  list-style: none;
+  display: table;
+  table-layout: fixed;
   margin: auto;
-} 
+}
 
 /* >>>>>> Header <<<<<<< */
 
@@ -235,7 +236,7 @@ div#footer_templatecss
   border-top: 1.5px solid silver;
   // padding-top: 20px;
   // margin-top: 20px;
-  // border-color: #6699FF; 
+  // border-color: #6699FF;
   // border-style:groove;
 }
 
@@ -245,17 +246,17 @@ ul#footer_list
   left: 525px;
   list-style: none outside;
 }
-li#header_item 
-{ 
-  float:left; 
-  height: 25px; 
-  width: 75px; 
-  // font-family: 'Short Stack', cursive; 
-  border-width: 0 1px 0 0; 
-  border-style: solid; 
-  border-color: #999; 
-  text-align: center; 
-} 
+li#header_item
+{
+  float:left;
+  height: 25px;
+  width: 75px;
+  // font-family: 'Short Stack', cursive;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: #999;
+  text-align: center;
+}
 
 li#navbar_item
 {

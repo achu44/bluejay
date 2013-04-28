@@ -9,7 +9,7 @@ class MainController < ApplicationController
 	end
 
 	def main
-		
+		@items = Item.order("name").page(params[:page]).per_page(5)
 	end
 
 	def how_it_works
