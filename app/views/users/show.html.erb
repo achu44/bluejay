@@ -31,13 +31,7 @@
       <b>Name:</b> <%= @user.name %>
         <% end %><br>
       <b>Email:</b> <%= @user.email %><br>
-        <% if @user.house %>
-      <b>House: </b><%= @user.house %><br>
-        <% end %>
-        <% if @user.year %>
-      <b> Year: </b><%= @user.year %>
-        <% end %>
-
+  
       <% if current_user.id == @user.id %>
       <div style="position:absolute; bottom: 0px; right: 10px">
         <%= link_to 'Edit', edit_user_path(@user) %>

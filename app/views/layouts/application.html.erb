@@ -7,27 +7,28 @@
     </title>
 
     <%=stylesheet_link_tag "template3" %>
-    <%= javascript_include_tag 'application' %> 
+    <%= javascript_include_tag "application" %> 
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <!-- MODAL DIALOGS (not rendered inline) -->
-    <!-- Modal Dialog for signing in -->
-    <div id="signin-dialog" class="modal" style="display: none;">
-      <div class="modal-header">
-        <a class="close" data-dismiss="modal">&#215;</a>
-          <h3>Sign In</h3>
-      </div>
-      <div class="modal-body">
-        <%= render 'devise/sessions/form' %>
-        <%= render 'devise/shared/links' %>
-      </div>
 
-      <div class="modal-footer">
-        <a class="btn" data-dismiss="modal" href="#">Close</a>
-      </div>
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Sign In</h3>
     </div>
+    <div class="modal-body">
+      <%= render 'devise/sessions/form' %>
+      <%= render 'devise/shared/links' %>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+    </div>
+
+
 
     <!-- Modal Dialog for posting an item -->
     <div id="post-item-modal" class="modal" style="display: none;">
@@ -60,10 +61,10 @@
         <ul class="nav pull-right">
           <% if user_signed_in? %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Account</a>
               <!--<b class="caret"></b>-->
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                 <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
                 <% if current_user_facebook %>
                   <li><%= link_to "Unlink Facebook Account", logout_path %></li>
@@ -75,7 +76,7 @@
               </ul>
             </li>
           <% else %>
-            <li><a data-toggle="modal" href="#signin-dialog">Sign In</a></li>
+            <li><a href="#myModal" data-toggle="modal">Sign In</a></li>
           <% end %>
         </ul>
       </div>

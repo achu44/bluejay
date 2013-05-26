@@ -51,8 +51,6 @@ before_filter :require_same_user, :only => [:edit, :update, :destroy]
     # @test_array = ["Books", "Dorm", "Electronics", "Tickets"]
     #@items = Item.tagged_with(@test_array, :any => true)
 
-
-
     # Anyway, these were from the code when Texticle was still a gem.
     # if parameter.length > 0 && item_type.length > 0
     #   @items = Item.basic_search(parameter).basic_search(item_type: item_type_var)
