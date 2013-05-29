@@ -4,7 +4,6 @@ before_filter :find_item, :only => [:show, :edit, :update, :destroy]
 before_filter :require_user, :only => [:edit, :update, :create, :destroy]
 before_filter :require_same_user, :only => [:edit, :update, :destroy]
 
-
   def itemslist
     @items = Item.find(:all, :order => 'created_at DESC')
 

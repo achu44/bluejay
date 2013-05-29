@@ -10,5 +10,6 @@
 //= require bootstrap
 //= require bootstrap-modal
 //= require bootstrap-dropdown
+//= require bootstrap-button
 
 
