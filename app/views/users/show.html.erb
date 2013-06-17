@@ -18,9 +18,9 @@
   <div class="span2">
 
     <% if @user.photo %>
-    <div style="margin-bottom:50px">
-      <%= image_tag @user.photo, :style => "height: 150px; width: 150px" %>
-    </div>
+      <div style="margin-bottom:50px">
+        <%= image_tag @user.photo, :style => "height: 150px; width: 150px" %>
+     </div>
     <% end %>
 
     <div id="profile_info_box">
@@ -66,9 +66,6 @@
     <td><%= s.id %></td>
     <td><%= @user.id %></td>
     <td><%= s.name %></td>
-    <td><%= s.item_type %></td>
-    <td class="result_image"><%= image_tag(s.image_url) %></td>
-    <td><%= s.description %></td>
     <% if current_user.id == @user.id %>
     <td><%= button_to 'Edit', edit_item_path(s), :class => "btn btn-small btn-info", :method => :get %> </td>
     <td><%= button_to 'Delete', {:controller => 'items', :action => 'destroy', :id => s.id}, :class => "btn btn-small btn-danger", :method => :delete %></td> 

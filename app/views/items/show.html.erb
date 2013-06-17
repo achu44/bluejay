@@ -9,12 +9,10 @@
 
 <div class="span2">
     <h1><%= @item.name %></h1>
-
     <p>Price: &nbsp <%= number_to_currency(@item.price) %></p>
+    <p>Place: &nbsp <%= @item.place %></p>
     <p>Details: &nbsp <%= @item.description %></p>
-    <p>Category: &nbsp <%= @item.item_type %></p>
     <p>Tag List: &nbsp <%= @item.tag_list %></p>
-    <p>House List: &nbsp <%= @item.house_list %></p>
     <p>Posted: &nbsp <%= time_ago_in_words(@item.created_at) %> ago</p>
     <p><%= link_to('Return to Home', items_path) %></p>
 </div>
@@ -24,8 +22,8 @@
 <h3> Contact Seller </h3>
 
 <%= simple_form_for :message, :url => {:controller => "contact", :action => "new"} do |f| %>
-    <%= f.input :name, :input_html => {:value => "MVC"} %>
-    <%= f.input :email, :input_html => {:value => "MVC@gmail.com"} %> 
+    <%= f.input :name, :input_html => {:value => "Pink"} %>
+    <%= f.input :email, :input_html => {:value => "Pink@gmail.com"} %> 
     <%= f.input :subject, :input_html => {:value => "Subject"} %> 
     <%= f.input :body, :input_html => {:rows => 5, :maxlength => 250, :value => "Body of Email"} %>
     <%= f.button :submit, 'Send Email' %>

@@ -1,7 +1,7 @@
 <table>
-<% @items.each do |item| %>
-    <td class = "result_image"><%= image_tag(item.image_url) %></td>
-    <td><%= link_to item.name, item %></td>
-    <td><%= item.description %></td>
-<% end %>
+	<% @items.each do |item| %>
+	    <td class = "result_image"><%= image_tag(item.image_url) %></td>
+	    <td><%= link_to item.name, item %></td>
+	    <td><%= item.description %></td>
+	<% end %>
 </table>

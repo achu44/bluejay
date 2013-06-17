@@ -26,10 +26,12 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 #gem 'texticle', require: 'texticle/rails'
 gem 'acts-as-taggable-on'
+gem 'pg_search'
+gem 'pg'
 
 group :development do
 	gem 'letter_opener'
-  gem 'sqlite3'
+    gem 'sqlite3'
 end
 
 group :production do

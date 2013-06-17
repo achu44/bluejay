@@ -1,29 +1,29 @@
 <% if Item.find(:all) %>
-<% @items = Item.order("created_at DESC").find(:all, :limit => 24) %>
+	<% @items = Item.order("created_at DESC").find(:all, :limit => 24) %>
 <% end %>
 
 <% if Item.find(:all) %>
-<% if @items.length < 13 && @items.length != 0 %>
-	<% for i in 0..@items.length %>
-		<%= link_to @items[i].name, @items[i] %>
-		<%= time_ago_in_words(@items[i].created_at) %>
-		<br>
+	<% if @items.length < 13 && @items.length != 0 %>
+		<% for i in 0..@items.length %>
+			<%= link_to @items[i].name, @items[i] %>
+			<%= time_ago_in_words(@items[i].created_at) %>
+			<br>
+		<% end %>
+	<% elsif @items.length !=0 %>
+		<% for i in 0..11 %>
+			<%= link_to @items[i].name, @items[i] %>
+			<%= time_ago_in_words(@items[i].created_at) %>
+			<br>
+		<% end %>
 	<% end %>
-<% elsif @items.length !=0 %>
-	<% for i in 0..11 %>
-		<%= link_to @items[i].name, @items[i] %>
-		<%= time_ago_in_words(@items[i].created_at) %>
-		<br>
-	<% end %>
-<% end %>
 <% end %>
 
 <table>
 <% @items.each do |item| %>
 	<tr>
-    <%= link_to item.name, item %> &nbsp
-    <%= time_ago_in_words(item.created_at) %>
-	<br>
+    	<%= link_to item.name, item %> &nbsp
+    	<%= time_ago_in_words(item.created_at) %>
+		<br>
 	</tr>
 <% end %>
 </table>

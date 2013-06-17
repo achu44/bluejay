@@ -26,29 +26,14 @@
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
-    </div>
+    </div>   
 
-
-
-    <!-- Modal Dialog for posting an item -->
-    <div id="post-item-modal" class="modal" style="display: none;">
-      <div class="modal-header">
-        <a class="close" data-dismiss="modal">&#215;</a>
-          <h3>Post a new Item</h3>
-      </div>
-      <div class="modal-body">
-        <%= render 'items/form' %>
-      </div>
-
-      <div class="modal-footer">
-        <a class="btn" data-dismiss="modal" href="#">Close</a>
-      </div>
-    </div>
+    
 
     <!-- NAVBAR -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <%= link_to "HarvardList", '/main', :class => "logo" %>
+        <%= link_to "MITList", '/main', :class => "logo" %>
         <ul class="nav">
           <!--<li class="active"><a href="#">Home</a></li>-->
           <li class="divider-vertical"><%= link_to "Home", "/main" %></li>
@@ -57,8 +42,10 @@
           <li><%= link_to "Looking For", '#' %></li>
           <li class="divider-vertical"></li>
           <li><%= link_to "Search Classmate", "/users" %></li>
+          <li>
         </ul>
         <ul class="nav pull-right">
+            <li><%= link_to "Post", new_item_path %></li>
           <% if user_signed_in? %>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -89,15 +76,7 @@
           <div class="container search-fields">
             <%= form_tag({:controller => items_path}, :method => "get", :class => "form-search search_form_templatecss") do %>
               <%= text_field_tag :query, params[:query], {:size => 40, :class => "search-query"} %>
-              <%= select_tag :r, "<option> </option><option>Books</option><option>Dorm</option><option>Electronics</option><option>Tickets</option><option>Clothing/Fashion</option><option>Misc</option>".html_safe, :selected => params[:r] %>
-
               <%= submit_tag('Search', :class => "btn btn-primary") %>
-            <% end %>
-
-            <% if user_signed_in? %>
-              <a class="btn btn-primary btn-medium post-button" data-toggle="modal" href="#post-item-modal">Post</a>
-            <% else %>
-              <a class="btn btn-primary btn-medium post-button" data-toggle="modal" href="#signin-dialog">Post</a>
             <% end %>
           </div>
         </div>

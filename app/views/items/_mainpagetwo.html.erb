@@ -1,5 +1,5 @@
 <% if Item.find(:all) %>
-<% @items = Item.order("created_at DESC").find(:all, :limit => 24) %>
+	<% @items = Item.order("created_at DESC").find(:all, :limit => 24) %>
 <% end %>
 
 <% if Item.find(:all) %>

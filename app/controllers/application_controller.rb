@@ -2,20 +2,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   #before_filter :authenticate_user!
-  before_filter :load_an_item
+  #before_filter :load_an_item
 
   # Important!! if you name the below current_user instead of
   #current_user_facebook, it overrides Devise's default
   # current_user and user_sigend_in? helper methods, which screws up a ton.
   # Not being able to keep track if the user is logged in or not, etc.
 
-  def load_an_item
-      @item = Item.new
-      if user_signed_in?
-        @item = current_user.items.build
-        @item.user_id = current_user.id 
-      end
-  end 
+  # def load_an_item
+  #     @item = Item.new
+  #     if user_signed_in?
+  #       @item = current_user.items.build
+  #       @item.user_id = current_user.id 
+  #     end
+  # end 
 
   def current_user_facebook
     session[:user_id]
