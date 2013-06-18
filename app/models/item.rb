@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
 	attr_accessible :name, :item_type, :price, :image, :image_url, :remote_image_url, :description,
-        :tag_list
+        :tag_list, :place
+    acts_as_taggable
     acts_as_taggable_on :tag
     belongs_to :user
     mount_uploader :image, ImageUploader

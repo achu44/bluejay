@@ -21,6 +21,8 @@ Swap::Application.routes.draw do
 
   root :to => "main#about"
 
+  get 'tags/:tag', to: 'items#index', as: :tag
+
   # for the Main controller
   match 'home', :to => "main#home"
   match 'main', :to => "main#main"

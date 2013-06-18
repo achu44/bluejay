@@ -7,8 +7,13 @@
 <div class="row-fluid">
     <div class="span2"  >
         <div class="sidebar">
-
-         
+         <div id="tag_cloud">
+            
+            <% tag_cloud Item.tag_counts, %w[s m l] do |tag, css_class| %>
+                <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+                <br>
+            <% end %>
+        </div>
 
         </div> <!--div for sidebar -->
     </div> <!-- div for span2 -->
@@ -37,7 +42,8 @@
         </div>
     	<br>
     	<div style="text-align:center">
-    		<%= link_to item.name, item %>
+    		<%= link_to item.name, item %><br>
+            Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     	</div>
     </td>
 

@@ -10,9 +10,13 @@ before_filter :require_same_user, :only => [:edit, :update, :destroy]
     @items = Item.find(:all, :order => 'created_at DESC', :limit => 50)
     @parameter = params[:query]
     @item_type = params[:category]
-    if @parameter
-    @items = Item.search_by_name(@parameter)
 
+    if params[:tag]
+        @items = Item.tagged_with(params[:tag])
+     else 
+      if @parameter
+            @items = Item.search_by_name(@parameter)
+      end
     end
 
     respond_to do |format|
