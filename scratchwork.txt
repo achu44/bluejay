@@ -1,3 +1,8 @@
+from bootstrap button group js <button type="button" id="btn_list" class="btn">List</button>
+
+<%= f.input :name, :input_html => {:value => "Pink"} %>
+<%= f.input :email, :input_html => {:value => "Pink@gmail.com"} %> 
+
 <%= f.input :place, :collection => ["Yard", "River", "Quad", "Other"], :selected => @item.place %>
 
 <% if user_signed_in? %>

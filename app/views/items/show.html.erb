@@ -22,10 +22,8 @@
 <h3> Contact Seller </h3>
 
 <%= simple_form_for :message, :url => {:controller => "contact", :action => "new"} do |f| %>
-    <%= f.input :name, :input_html => {:value => "Pink"} %>
-    <%= f.input :email, :input_html => {:value => "Pink@gmail.com"} %> 
-    <%= f.input :subject, :input_html => {:value => "Subject"} %> 
-    <%= f.input :body, :input_html => {:rows => 5, :maxlength => 250, :value => "Body of Email"} %>
+    <%= f.input :subject %> 
+    <%= f.input :body, :input_html => {:rows => 5, :maxlength => 250} %>
     <%= f.button :submit, 'Send Email' %>
 <% end %>
 

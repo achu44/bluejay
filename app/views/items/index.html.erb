@@ -1,3 +1,16 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script> 
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $(this).hide();
+  });
+  $("#btn_grid").click(function(){
+    $("#grid_partial").toggle();
+  });
+});
+</script>
+
 <%= set_title 'Search Results' %>
 
 <style type="text/css">
@@ -21,11 +34,8 @@
 <div class="span8">
 
 <div class="btn-group" data-toggle="buttons-radio" style="padding:10px">
-  <button type="button" class="btn">List</button>
-  <button type="button" class="btn">Pic</button>
-  <button type="button" class="btn">Grid</button>
+  <button type="button" id="btn_grid" class="btn">Grid/List</button>
 </div>
-
 
 <% count = 0 %>
 
@@ -53,6 +63,11 @@
 <% end %>
 
 </table>
+
+<p id="hide">Hide me</p>
+
+<p id="grid_partial" style="padding-top:20px"><%= render "items/mainpageitems" %></p>
+
 
 </div> <!-- closing div tag for 'span10' from above -->
 

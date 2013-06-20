@@ -11,5 +11,6 @@
 //= require bootstrap-modal
 //= require bootstrap-dropdown
 //= require bootstrap-button
+//= require bootstrap-carousel
 
 
