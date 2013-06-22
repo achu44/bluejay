@@ -9,6 +9,19 @@
     <%=stylesheet_link_tag "template3" %>
     <%= javascript_include_tag "application" %> 
     <%= csrf_meta_tags %>
+
+    <style type="text/css">
+        body {
+          margin-top: 65px;
+        }
+        div.sidebar {
+          /*fill in later? */
+          margin-left: 20px;
+        }
+        div#footer_templatecss {
+          margin-top: 20px;
+        }
+    </style>
   </head>
 
   <body>
@@ -28,22 +41,24 @@
     </div>
     </div>   
 
-    
-
     <!-- NAVBAR -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <%= link_to "MITList", '/main', :class => "logo" %>
         <ul class="nav">
           <!--<li class="active"><a href="#">Home</a></li>-->
-          <li class="divider-vertical"><%= link_to "Home", "/main" %></li>
           <li><%= link_to "Browse", items_path %></li>
           <li class="divider-vertical"></li>
-          <li><%= link_to "Looking For", '#' %></li>
+          <li><%= link_to "Classmates", "/users" %></li>
           <li class="divider-vertical"></li>
-          <li><%= link_to "Search Classmate", "/users" %></li>
-          <li>
         </ul>
+
+        <%= form_tag({:controller => items_path}, :method => "get", :class => "form-search search_form_templatecss") do %>
+              <%= text_field_tag :query, params[:query], {:size => 40, :class => "search-query"} %>
+              <%= submit_tag('Search', :class => "btn-small btn-primary") %>
+        <% end %>
+
+
         <ul class="nav pull-right">
             <li><%= link_to "Post", new_item_path %></li>
           <% if user_signed_in? %>
@@ -69,20 +84,6 @@
       </div>
     </div>
 
-    <!-- TOP BAR IN SITE -->
-    <div class="row-fluid">  
-      <div class="span12">
-        <div id="search_header_templatecss">
-          <div class="container search-fields">
-            <%= form_tag({:controller => items_path}, :method => "get", :class => "form-search search_form_templatecss") do %>
-              <%= text_field_tag :query, params[:query], {:size => 40, :class => "search-query"} %>
-              <%= submit_tag('Search', :class => "btn btn-primary") %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- PAGE CONTENT -->
     <div id="main">
       <%= yield%> 
@@ -94,7 +95,7 @@
         <div id="footer_templatecss">
           <ul id="footer_list" class="nav nav-pills">
             <li><%= link_to 'Users', '/users'%></li>
-            <li><%= link_to 'Items List', '/itemslist'%></li>
+            <li><%= link_to 'Items', '/itemslist'%></li>
             <li><%= link_to 'About', '/about'%></li>
             <li><%= link_to 'Items', '/items'%></li>
             <li><%= link_to 'Home', '/home' %></li>

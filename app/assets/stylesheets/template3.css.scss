@@ -166,20 +166,24 @@ div#main_page_text_temporary h2 {
 //   text-align: center;
 // }
 
+
+/* not being used atm */
 div#search_header_templatecss
 
 {
   padding-top: 40px;
   height: 40px;
   background-image: $turquoiseMediumVerticalGradient;
+
 }
 
-// form.search_form_templatecss
-// {
-//   position: absolute;
-//   right: 30px;
-//   top: 65px;
-// }
+form.search_form_templatecss
+{
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 5px;
+}
 div#main
 {
   height: 100%;
