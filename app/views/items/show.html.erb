@@ -9,11 +9,10 @@
 
 <div class="span2">
     <h1><%= @item.name %></h1>
-    <p>Price: &nbsp <%= number_to_currency(@item.price) %></p>
-    <p>Place: &nbsp <%= @item.place %></p>
-    <p>Details: &nbsp <%= @item.description %></p>
-    <p>Tag List: &nbsp <%= @item.tag_list %></p>
-    <p>Posted: &nbsp <%= time_ago_in_words(@item.created_at) %> ago</p>
+    <p>@ &nbsp <%= @item.place %></p>
+    <p>&nbsp <%= @item.description %></p>
+    <p>Tags: &nbsp <%= @item.tag_list %></p>
+    <p>&nbsp <%= time_ago_in_words(@item.created_at) %> ago</p>
     <p><%= link_to('Return to Home', items_path) %></p>
 </div>
 
