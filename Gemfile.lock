@@ -32,6 +32,7 @@ GEM
       rails (>= 3, < 5)
     addressable (2.3.4)
     arel (3.0.2)
+    attr_required (0.0.5)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
@@ -66,10 +67,16 @@ GEM
     faraday (0.8.7)
       multipart-post (~> 1.1)
     fattr (2.2.1)
+    fb_graph (2.7.5)
+      httpclient (>= 2.2.0.2)
+      multi_json (>= 1.3)
+      rack-oauth2 (>= 0.14.4)
+      tzinfo
     hashie (2.0.5)
     highline (1.6.19)
     hike (1.2.3)
     httpauth (0.2.0)
+    httpclient (2.3.3)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.1)
@@ -117,6 +124,12 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-oauth2 (1.0.5)
+      activesupport (>= 2.3)
+      attr_required (>= 0.0.5)
+      httpclient (>= 2.2.0.2)
+      multi_json (>= 1.3.6)
+      rack (>= 1.1)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -184,6 +197,7 @@ DEPENDENCIES
   coffee-rails
   debugger
   devise
+  fb_graph
   jquery-rails
   json
   letter_opener

@@ -6,7 +6,7 @@ gem 'activesupport', '~> 3.2.10'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-
+gem 'fb_graph'
 gem 'thin'
 gem 'json'
 #gem 'sunspot_rails'

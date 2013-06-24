@@ -5,9 +5,12 @@ $(document).ready(function(){
   // $("#hide").click(function(){
   //   $(this).hide();
   // });
-  $("#btn_grid").click(function(){
-    $("#grid_partial").toggle();
-  });
+  // <p id="hide">Hide me</p>
+
+$("#btn_grid").click(function(){
+$("#grid_partial").toggle()
+});
+  
 });
 </script>
 
@@ -34,7 +37,10 @@ $(document).ready(function(){
 <div class="span8">
 
 <div class="btn-group" data-toggle="buttons-radio" style="padding:10px">
-  <button type="button" id="btn_grid" class="btn">Grid/List</button>
+ <!--  <%= button_to 'Grid/List', items_path, :id => "btn_grid", :class => "btn", :method => :get %> -->
+
+  <!-- , :remote => true -->
+<button type="button" id="btn_grid" class="btn">Grid/List</button>
 </div>
 
 <% count = 0 %>
@@ -64,7 +70,7 @@ $(document).ready(function(){
 
 </table>
 
-<p id="hide">Hide me</p>
+
 
 <!-- <p id="grid_partial" style="padding-top:20px"><%= render "items/mainpageitems" %></p> -->
 <%= link_to "Grid/List", 'items/mainpageitems', id: "grid_partial", remote: true %>
