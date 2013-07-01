@@ -180,6 +180,8 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    validates_formatting_of (0.8.0)
+      activemodel (~> 3.0)
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.4)
@@ -213,5 +215,6 @@ DEPENDENCIES
   sqlite3
   thin
   uglifier
+  validates_formatting_of
   will_paginate
   will_paginate-bootstrap

@@ -9,8 +9,7 @@ default :from => "noreply@theharvardlist.com", :content_type => "text/html"
   def new_message(message, user) #http://matharvard.ca/posts/2011/aug/22/contact-form-in-rails-3/
   	@message = message
   	@user = user
-  	mail(:subject => "[NapList.tld] #{message.subject}")
-  	mail(:to => @user.email)
+  	mail(to: @user.email, subject: @message.subject)
   end
 
 end

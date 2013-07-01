@@ -2,13 +2,22 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
+
+  # include ActiveModel::Validations
+  # extend ValidatesFormattingOf::ModelAdditions
+  # validates_formatting_of :email
+  # was in use for validates_formatting_of gem.
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :house, :year, :password, :password_confirmation, :remember_me,
     :provider, :uid, :photo
-    has_many :items
+
+  has_many :items
+
+  validates_format_of 
 
     #took out sunspot
     #searchable do
