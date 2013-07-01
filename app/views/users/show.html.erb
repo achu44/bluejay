@@ -24,16 +24,19 @@
     <% end %>
 
     <div id="profile_info_box">
-      <div style="text-align:center">
+      <!-- <div style="text-align:center">
         <b>Profile</b>
-      </div> 
+      </div>  -->
+      <div style="position:absolute; left:4px">
         <% if @user.name %>
-      <b>Name:</b> <%= @user.name %>
-        <% end %><br>
-      <b>Email:</b> <%= @user.email %><br>
-  
+      <h4><%= @user.name %></h4 >
+        <% end %>
+      <%= @user.email %><br>
+      id: <%= @user.id %>
+      </div>
+     
       <% if current_user.id == @user.id %>
-      <div style="position:absolute; bottom: 0px; right: 10px">
+      <div style="position:absolute; top: 0px; right: 10px">
         <%= link_to 'Edit', edit_user_path(@user) %>
       </div>
       <% end %>
@@ -48,27 +51,26 @@
 
   <table>
 
-  <tr class="thspace_right">
-    <th>Item</th>
-    <th>Item ID</th>
-    <th>User ID</th>
+<!--   <tr class="thspace_right">
+    <th>Pic</th>
     <th>Name</th>
-    <th>Type</th>
-    <th>Image</th>
-    <th>Description</th>
     <th>Edit</th>
     <th>Delete</th>
-  </tr>
+  </tr> -->
 
   <tr class="tdspace_right space_under">
     <% @useritems.each do |s| %>
-    <td><%= "#{@i}" %></td>
-    <td><%= s.id %></td>
-    <td><%= @user.id %></td>
-    <td><%= s.name %></td>
+    
+    <% if s.image %>
+    <td><%= link_to (image_tag s.image_url, :style => "width:100px; height:100px"), s %></td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <td><%= link_to s.name, s %></td>
     <% if current_user.id == @user.id %>
-    <td><%= button_to 'Edit', edit_item_path(s), :class => "btn btn-small btn-info", :method => :get %> </td>
-    <td><%= button_to 'Delete', {:controller => 'items', :action => 'destroy', :id => s.id}, :class => "btn btn-small btn-danger", :method => :delete %></td> 
+    <td></td>
+    <td><div style="position:relative; left:20px"><%= link_to 'Edit', edit_item_path(s), :class => "edit_link", :method => :get %></br>
+    <%= link_to 'Delete', {:controller => 'items', :action => 'destroy', :id => s.id}, :class => "delete_link", :method => :delete %></div></td>
     <% end %>
     <!--Take note!  The s.id is very deliberate.  It's the user id, not an html id. Think twice before tampering -->
   </tr>

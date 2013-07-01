@@ -1,3 +1,9 @@
+6/30/13
+
+<td><%= "#{@i}" %></td>
+<td><%= s.id %></td>
+<td><%= @user.id %></td>
+
 from bootstrap button group js <button type="button" id="btn_list" class="btn">List</button>
 
 <%= f.input :name, :input_html => {:value => "Pink"} %>

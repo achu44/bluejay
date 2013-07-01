@@ -46,10 +46,26 @@ $linkColor: darken($linkColor, 10%);
 
 @import "bootstrap";
 
-
 /* MIXIN CODE */
 
 /* UNIVERSAL STYLES */
+
+.link_test_example {
+  a:link {color: $turquoiseMedium;}
+  a:visited {color: $turquoiseMedium;}
+  a:hover {color: $turquoiseMedium;}
+  a:active {color: $turquoiseMedium;}
+}
+
+.edit_link {
+  $linkColor: #599497;
+  $linkColorHover: #599497;
+}
+
+.delete_link {
+  $linkColor: #599497;
+  $linkColorHover: #599497;
+}
 
 #tag_cloud {
   width: 400px;
