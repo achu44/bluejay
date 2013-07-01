@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   has_many :items
 
-  validates_format_of 
+  #validates_format_of :email, :with => , :on => :create
 
     #took out sunspot
     #searchable do
