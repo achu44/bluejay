@@ -8,6 +8,9 @@ class Item < ActiveRecord::Base
     include PgSearch
     multisearchable :against => [:name]
 
+    # require 'bossman'
+    # BOSSMan.application_id = [dj0yJmk9em94OHZkNmtTaWtxJmQ9WVdrOVpYZDVPVTU2TXpJbWNHbzlPREl6T1RVek56WXkmcz1jb25zdW1lcnNlY3JldCZ4PWQ5]
+
     pg_search_scope :search_by_name, :against => :name
 
     # took out sunspot

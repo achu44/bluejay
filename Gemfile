@@ -8,6 +8,8 @@ gem 'activesupport', '~> 3.2.10'
 
 # gem 'validates_formatting_of'
 # using RegEx instead?
+gem 'bossman' # for yahoo bossman search api
+gem 'binged' # for bing search api
 gem 'fb_graph'
 gem 'thin'
 gem 'json'

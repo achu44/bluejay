@@ -25,9 +25,10 @@
   </head>
 
   <body>
+
     <!-- MODAL DIALOGS (not rendered inline) -->
 
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="signinModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       <h3 id="myModalLabel">Sign In</h3>
@@ -39,7 +40,21 @@
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
-    </div>   
+    </div>
+
+    <div id="postModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Sign In</h3>
+    </div>
+    <div class="modal-body">
+      <%= render 'items/form' %>
+      <%= render 'items/form' %>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+    </div>      
 
     <!-- NAVBAR -->
     <div class="navbar navbar-fixed-top">
@@ -78,7 +93,7 @@
               </ul>
             </li>
           <% else %>
-            <li><a href="#myModal" data-toggle="modal">Sign In</a></li>
+            <li><a href="#signinModal" data-toggle="modal">Sign In</a></li>
           <% end %>
         </ul>
       </div>
