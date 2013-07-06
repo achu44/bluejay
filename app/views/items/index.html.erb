@@ -10,6 +10,8 @@ $(document).ready(function(){
 $("#btn_toggle").click(function(){
 $("#partial_toggle").toggle()
 });
+
+var active = $('.').val();
   
 });
 </script> 
@@ -37,10 +39,11 @@ $("#partial_toggle").toggle()
 <div class="span8">
 
 <div class="btn-group" data-toggle="buttons-radio" style="padding:10px">
- <!--  <%= button_to 'Grid/List', items_path, :id => "btn_grid", :class => "btn", :method => :get %> -->
-
-  <!-- , :remote => true -->
-<button type="button" id="btn_toggle" class="btn">Grid/List</button>
+  <div class="btn-group" data-toggle="buttons-radio">
+    <button type="button" class="btn" value="0">List</button>
+    <button type="button" class="btn0" value="1">Pic</button>
+    <button type="button" class="btn" value="2">Grid</button>
+  </div>  
 </div>
 
 <% count = 0 %>

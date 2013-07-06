@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
     # require 'bossman'
     # BOSSMan.application_id = [dj0yJmk9em94OHZkNmtTaWtxJmQ9WVdrOVpYZDVPVTU2TXpJbWNHbzlPREl6T1RVek56WXkmcz1jb25zdW1lcnNlY3JldCZ4PWQ5]
 
-    pg_search_scope :search_by_name, :against => :name
+    pg_search_scope :search_by_name, :against => :name, :using => [:tsearch]
 
     # took out sunspot
     # searchable do

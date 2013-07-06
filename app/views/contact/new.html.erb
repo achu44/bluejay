@@ -5,33 +5,17 @@
 <div class="span10">
 
 
-<h2>Send Us an Email</h2>
+<h2>Comments, thoughts?</h2>
 <br />
 
-<%= form_for @message, :url => contact_path, do |form| %>
-	<fieldset class = "fields">
-		<div class="field">
-			<%= form.label :name %>
-			<%= form.text_field :name %>
-		</div>
-
-		<div class="field">
-			<%=form.label :email %>
-			<%= form.text_field :email %>
-		</div>
-		<div class="field">
-			<%= form.label :subject %>
-			<%= form.text_field :subject %>
-		</div>
-		<div class="field">
-			<%= form.label :body %>
-			<%= form.text_area :body, :rows => 8, :columns => 30 %>
-		</div>
-	</fieldset>
-
-	<fieldset class="actions">
-		<%= form.submit "Send" %>
-	</fieldset>
+<%= simple_form_for :message, :url => {:controller => "contact", :action => "new"} do |f| %>
+	<% if !user_signed_in? %>
+	<%= f.input :name %>
+	<%= f.input :email %>
+	<% end %>
+    <%= f.input :subject %> 
+    <%= f.input :body, :input_html => {:rows => 5, :maxlength => 250} %>
+    <%= f.button :submit, 'Submit' %>
 <% end %>
 
 <%= link_to 'Back', '/main' %>

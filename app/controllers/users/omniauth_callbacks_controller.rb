@@ -12,6 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user.uid = omniauth_data["uid"]
       user.name = omniauth_data["info"]["name"]
       user.photo = omniauth_data["info"]["image"]
+      user.access_token = ominiauth_data["credentials"]
       user.save
 
     else
