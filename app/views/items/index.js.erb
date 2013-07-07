@@ -1,4 +1,1 @@
-$("#btn_toggle").click(function(){
-	$("#partial_toggle").toggle()
-   	$("#partial_toggle").toggle().after('<%= j render("mainpageitemswithphotos") %>')
-  });
+$('#div_id_to_render_partial').html("<%= j render("items/mainpageitemswithphotos_simple") %>");

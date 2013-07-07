@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   before_filter :require_same_user, :only => [:new, :edit, :update, :create, :destroy]
 
+  # def profile
+  #   @profile ||= FbGraph::User.me(self.access_token).fetch
+  # end
+  # hm, this is not relevant i think.
+
   # GET /users
   # GET /users.json
   def index
@@ -17,6 +22,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+
+    # @fb_user = FbGraph::User.me(@user.access_token)
+    # @fb_user = @fb_user.fetch
+    # see users/show.html for the commented code on displaying friend list.
+    # http://stackoverflow.com/questions/10824294/accessing-data-using-facebook-graph-api-in-fb-graph-rails
 
     respond_to do |format|
       format.html # show.html.erb

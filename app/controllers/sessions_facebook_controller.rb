@@ -1,7 +1,6 @@
 class SessionsFacebookController < ApplicationController
 	def create
     	user = User.from_omniauth(env["omniauth.auth"])
-      debugger
     	session[:user_id] = user.id
     	redirect_to '/main'
   	end

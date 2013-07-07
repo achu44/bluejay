@@ -1,3 +1,43 @@
+7/7/13
+
+from items/index.html:
+<!-- <p id="grid_partial" style="padding-top:20px"><%= render "items/mainpageitems" %></p> -->
+<!--<%= link_to "Grid/List", 'items/mainpageitems', id: "partial_toggle", remote: true %> -->
+
+js code:
+
+// $("#btn_toggle").click(function(){
+//  $("#partial_toggle").toggle()
+//      $("#partial_toggle").toggle().after('<%= j render("mainpageitemswithphotos") %>')
+//   });
+
+// $("#hide").click(function(){
+//   $(this).hide();
+// });
+// <p id="hide">Hide me</p>
+
+// $("#btn_toggle").click(function(){
+// $("#partial_toggle").toggle()
+// });
+// var active = $('.').val();
+
+7/6/13
+
+for the fb_graph gem:
+
+# user.access_token = omniauth_data["credentials"]
+
+ <!--  <% if @fb_user.name %>
+      <h4>fb user: <%= @fb_user.name %></h4 >
+        <% end %> -->
+
+formerly in users/show.html.erb:
+
+  <!-- <%= @fb_user.friends %>  this kinda works - but spits out a ton of stuff -->
+  <!--<%= @fb_user.friends.each do |friend| %>
+    <p><%= friend.name %> </p>
+  <% end %>-->
+
 7/5/13
 
 <!--  <%= button_to 'Grid/List', items_path, :id => "btn_grid", :class => "btn", :method => :get %> -->

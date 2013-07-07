@@ -8,6 +8,7 @@ gem 'activesupport', '~> 3.2.10'
 
 # gem 'validates_formatting_of'
 # using RegEx instead?
+gem 'omniauth-oauth2'
 gem 'bossman' # for yahoo bossman search api
 gem 'binged' # for bing search api
 gem 'fb_graph'
@@ -27,7 +28,7 @@ gem 'rmagick'
 gem 'bootstrap-sass'
 #gem 'twitter-bootstrap-rails'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 #gem 'texticle', require: 'texticle/rails'
 gem 'acts-as-taggable-on'
 gem 'pg_search'

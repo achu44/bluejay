@@ -1,4 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+  skip_before_filter :authenticate
+
   def facebook
 
     omniauth_data = request.env["omniauth.auth"]
@@ -12,7 +15,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user.uid = omniauth_data["uid"]
       user.name = omniauth_data["info"]["name"]
       user.photo = omniauth_data["info"]["image"]
-      user.access_token = ominiauth_data["credentials"]
+      user.access_token = omniauth_data["credentials"]["token"]   
+
+      fb_user = FbGraph::User.me(user.access_token)
+      # fb_user = FbGraph::User.new('matake', :access_token => user.access_token)
+      fb_user = fb_user.fetch
+
       user.save
 
     else
