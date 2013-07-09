@@ -1,1 +1,19 @@
-$('#div_id_to_render_partial').html("<%= j render("items/mainpageitemswithphotos_simple") %>");
+<% @filter = params[:filter] 
+@parameter = params[:query]
+    @item_type = params[:category] %>
+
+<% if @filter == "list" %>
+	$('#div_id_to_render_partial').html("<%= j render("items/listview", object: @items) %>");
+<% end %>
+
+<% if @filter == "pic" %>
+	$('#div_id_to_render_partial').html("<%= j render("items/picview", object: @items) %>");
+<% end %>
+
+<% if @filter == "grid" %>
+	$('#div_id_to_render_partial').html("<%= j render("items/gridview", object: @items) %>");
+<% end %>
+
+// $('#div_id_to_render_partial').text("Hello world!");
+// $('#div_id_to_render_partial').html("<%= j render("items/mainpageitemswithphotos_simple") %>");
+

@@ -1,0 +1,14 @@
+
+<table>
+	<tr>
+	<% @items.each do |item| %>
+		<td><div style="padding-right:22px">
+	    	<div class="image_decoration">
+	    		<%= link_to image_tag(item.image_url), item %>
+	    	</div>
+	    <%= link_to item.name, item %>
+	    <%= time_ago_in_words(item.created_at) %>
+		</div></td>
+	<% end %>
+	</tr>
+</table>

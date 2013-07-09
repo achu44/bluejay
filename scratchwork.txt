@@ -1,3 +1,25 @@
+7/8/13
+
+<%= link_to "Partial please", items_path, :remote => true %>  
+<br><br>
+formerly in items/index.html
+$(".alignment .btn").click(function() {
+  $("#alignment").val($(this).text());
+  $alignmentValue = $(this).text();
+});
+// bruno said to use if statements to check for value
+// and render the right partials.
+// google mixing javascript and ruby code.
+<input type="text" id="alignment" value="" /><br>
+<div class="btn-group alignment" data-toggle="buttons-radio" style="padding:10px">
+  <div class="btn-group" data-toggle="buttons-radio">
+    <button type="button" class="btn">List</button>
+    <button type="button" class="btn">Pic</button>
+    <button type="button" class="btn">Grid</button>
+  </div>  
+</div>
+<br> <input type="text" />
+
 7/7/13
 
 from items/index.html:
