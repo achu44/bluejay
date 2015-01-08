@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
 
   def load_an_item
       @item = Item.new
-      # if user_signed_in?
-      #   @item = current_user.items.build
-      #   @item.user_id = current_user.id 
-      # end
+       if user_signed_in?
+         @item = current_user.items.build
+         @item.user_id = current_user.id 
+       end
   end 
 
   def current_user_facebook
